@@ -963,19 +963,19 @@ class _ProfilePageState extends State<ProfilePage> {
                                   onTapGridMovie(moviesWatchList, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     textAlign: TextAlign.left,
                                     'Movie Watch List',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1025,7 +1025,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No movies in the watchlist yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1042,18 +1042,18 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () => onTapGridSerie(recentEpisodes, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Watchlist Recent Episodes',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1150,7 +1150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No series in your watchlist aired in the last 14 days',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1168,18 +1168,18 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () => onTapGridSerie(tvWatchList, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'TV Watch List',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1230,7 +1230,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No TV shows in the watchlist yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1243,22 +1243,22 @@ class _ProfilePageState extends State<ProfilePage> {
                             padding: const EdgeInsets.fromLTRB(15, 15, 0, 5),
                             child: GestureDetector(
                               onTap: () =>
-                                  onTapGridMovie(movieFavorites, context),
+                                   onTapGridMovie(movieFavorites, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     textAlign: TextAlign.left,
                                     'Favorite Movies',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1308,7 +1308,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No favorite movies yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1326,18 +1326,18 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () => onTapGridSerie(tvFavorites, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Favorite TV Shows',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1388,7 +1388,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No favorite TV shows yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1406,19 +1406,19 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () => onTapGridMovie(movieRated, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     textAlign: TextAlign.left,
                                     'Rated Movies',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1468,7 +1468,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No rated movies yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),
@@ -1486,18 +1486,18 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () => onTapGridSerie(tvRated, context),
                               child: Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Rated TV Shows',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                      color: colorScheme.onSurface,
                                     ),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     size: 16,
                                   ),
                                 ],
@@ -1548,7 +1548,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: Text(
                                 'No rated TV shows yet',
                                 style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
+                                    color: colorScheme.primary,
                                     fontSize: 14),
                               ),
                             ),

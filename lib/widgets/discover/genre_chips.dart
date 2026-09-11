@@ -25,12 +25,19 @@ class GenreBottomSheet extends StatefulWidget {
 class _GenreBottomSheetState extends State<GenreBottomSheet> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return ListView(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('Select Genres',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            'Select Genres',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: colorScheme.onSurface,
+            ),
+          ),
         ),
         Wrap(
           spacing: 8.0,
@@ -78,24 +85,25 @@ class _GenreBottomSheetState extends State<GenreBottomSheet> {
   }
 
   Widget _buildAndGenreCheckbox() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Checkbox(
-            activeColor: Colors.white,
-            checkColor: Theme.of(context).primaryColor,
-            side: const BorderSide(color: Colors.white),
+            activeColor: colorScheme.primary,
+            checkColor: colorScheme.onPrimary,
+            side: BorderSide(color: colorScheme.outlineVariant.withValues(alpha: 0.6)),
             value: widget.andGenreSearch,
             onChanged: (bool? newValue) {
               widget.onToggleAndGenre(newValue);
               setState(() {}); // Trigger rebuild
             },
           ),
-          const Text(
+          Text(
             'Must have all selected genres',
-            style: TextStyle(color: Colors.white, fontSize: 12),
+            style: TextStyle(color: colorScheme.onSurfaceVariant, fontSize: 12),
           ),
         ],
       ),
