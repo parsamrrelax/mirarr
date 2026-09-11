@@ -282,28 +282,30 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildAndGenreCheckbox() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Checkbox(
-          activeColor: Theme.of(context).primaryColor,
-          checkColor: Colors.black,
-          side: BorderSide(color: Colors.white.withValues(alpha: 0.5)),
+          activeColor: colorScheme.primary,
+          checkColor: colorScheme.onPrimary,
+          side: BorderSide(color: colorScheme.outlineVariant.withValues(alpha: 0.6)),
           value: _andGenreSearch,
           onChanged: _toggleAndGenre,
         ),
         Text(
           'All selected',
-          style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 11),
+          style: TextStyle(color: colorScheme.onSurfaceVariant, fontSize: 11),
         ),
       ],
     );
   }
 
   void _showGenreBottomSheet(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.grey[950],
+      backgroundColor: colorScheme.surfaceContainerHigh,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -333,6 +335,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildPeopleSearchSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -344,17 +347,17 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withValues(alpha: 0.9),
+                color: colorScheme.onSurface,
               ),
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Checkbox(
-                  activeColor: Theme.of(context).primaryColor,
-                  checkColor: Colors.black,
+                  activeColor: colorScheme.primary,
+                  checkColor: colorScheme.onPrimary,
                   side: BorderSide(
-                    color: Colors.white.withValues(alpha: 0.5),
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.6),
                   ),
                   value: _andPersonSearch,
                   onChanged: _toggleAndPerson,
@@ -362,7 +365,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
                 Text(
                   _andPersonSearch ? 'All match' : 'Any match',
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.6),
+                    color: colorScheme.onSurfaceVariant,
                     fontSize: 11,
                   ),
                 ),
@@ -406,22 +409,22 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
             return TextField(
               controller: fieldTextEditingController,
               focusNode: fieldFocusNode,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: colorScheme.onSurface),
               decoration: InputDecoration(
                 hintText: 'Search for people...',
-                hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.4)),
+                hintStyle: TextStyle(color: colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
                 filled: true,
-                fillColor: Colors.grey[900]!.withValues(alpha: 0.8),
+                fillColor: colorScheme.surfaceContainerHigh,
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Theme.of(context).primaryColor,
+                    color: colorScheme.primary,
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.white.withValues(alpha: 0.15),
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.3),
                     width: 1.5,
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -437,7 +440,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
               alignment: Alignment.topLeft,
               child: Material(
                 elevation: 4.0,
-                color: Colors.grey[900],
+                color: colorScheme.surfaceContainerHigh,
                 borderRadius: BorderRadius.circular(8),
                 child: SizedBox(
                   width: 300,
@@ -451,7 +454,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
                         onTap: () => onSelected(option),
                         title: Text(
                           option.name,
-                          style: const TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(color: colorScheme.onSurface, fontSize: 14),
                         ),
                       );
                     },
@@ -468,18 +471,18 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
             runSpacing: 4.0,
             children: andSelectedPeople
                 .map((person) => InputChip(
-                      backgroundColor: Theme.of(context).primaryColor.withValues(alpha: 0.15),
-                      selectedColor: Theme.of(context).primaryColor,
+                      backgroundColor: colorScheme.primaryContainer,
+                      selectedColor: colorScheme.primary,
                       label: Text(
                         person.name,
                         style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                          color: colorScheme.onPrimaryContainer,
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       deleteIcon: const Icon(Icons.close, size: 14),
-                      deleteIconColor: Theme.of(context).primaryColor,
+                      deleteIconColor: colorScheme.onPrimaryContainer,
                       onDeleted: () => _removePerson(person),
                     ))
                 .toList(),
@@ -490,6 +493,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildYearRangeSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -501,7 +505,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withValues(alpha: 0.9),
+                color: colorScheme.onSurface,
               ),
             ),
             Text(
@@ -509,7 +513,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor,
+                color: colorScheme.primary,
               ),
             ),
           ],
@@ -520,8 +524,8 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
           min: 1900,
           max: 2026,
           divisions: 126,
-          activeColor: Theme.of(context).primaryColor,
-          inactiveColor: Colors.white.withValues(alpha: 0.1),
+          activeColor: colorScheme.primary,
+          inactiveColor: colorScheme.outlineVariant.withValues(alpha: 0.3),
           labels: RangeLabels(
             _yearRange.start.round().toString(),
             _yearRange.end.round().toString(),
@@ -537,6 +541,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildDesktopGenresSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -548,7 +553,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: Colors.white.withValues(alpha: 0.9),
+                color: colorScheme.onSurface,
               ),
             ),
             _buildAndGenreCheckbox(),
@@ -565,6 +570,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildMobileGenresSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final selectedGenres = genreSelections.entries
         .where((e) => e.value != GenreSelection.none)
         .toList();
@@ -577,7 +583,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
           title: Text(
             'Genres',
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.9),
+              color: colorScheme.onSurface,
               fontWeight: FontWeight.bold,
               fontSize: 15,
             ),
@@ -589,12 +595,12 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
                 Text(
                   '${selectedGenres.length} selected',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
+                    color: colorScheme.primary,
                     fontSize: 12,
                   ),
                 ),
               const SizedBox(width: 8),
-              Icon(Icons.arrow_forward_ios, color: Theme.of(context).primaryColor, size: 16),
+              Icon(Icons.arrow_forward_ios, color: colorScheme.primary, size: 16),
             ],
           ),
           onTap: () => _showGenreBottomSheet(context),
@@ -633,23 +639,25 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildSearchButton(BuildContext context) {
-    return Container(
+    final colorScheme = Theme.of(context).colorScheme;
+    return SizedBox(
       width: double.infinity,
       height: 46,
       child: ElevatedButton.icon(
-        icon: const Icon(Icons.search_rounded, color: Colors.black, size: 20),
+        icon: Icon(Icons.search_rounded, color: colorScheme.onPrimary, size: 20),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
           elevation: 2,
         ),
         onPressed: () => _fetchMovies(context),
-        label: const Text(
+        label: Text(
           'Search Movies',
           style: TextStyle(
-            color: Colors.black,
+            color: colorScheme.onPrimary,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -659,23 +667,24 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildResultsGrid(BuildContext context, int columns) {
+    final colorScheme = Theme.of(context).colorScheme;
     if (isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator(color: colorScheme.primary));
     }
     if (movies.isEmpty) {
-      return const Center(
+      return Center(
         child: Padding(
-          padding: EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.movie_filter_outlined, size: 64, color: Colors.white24),
-              SizedBox(height: 16),
+              Icon(Icons.movie_filter_outlined, size: 64, color: colorScheme.outlineVariant.withValues(alpha: 0.4)),
+              const SizedBox(height: 16),
               Text(
                 'Customize your filters and press Search to discover movies',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white54,
+                  color: colorScheme.onSurfaceVariant,
                   fontSize: 16,
                 ),
               ),
@@ -711,16 +720,17 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildSplitPane(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 350,
           decoration: BoxDecoration(
-            color: Colors.grey[950],
+            color: colorScheme.surfaceContainerLow,
             border: Border(
               right: BorderSide(
-                color: Colors.white.withValues(alpha: 0.05),
+                color: colorScheme.outlineVariant.withValues(alpha: 0.2),
                 width: 1,
               ),
             ),
@@ -737,7 +747,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,
+                      color: colorScheme.primary,
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -755,7 +765,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
         ),
         Expanded(
           child: Container(
-            color: Colors.black,
+            color: colorScheme.surface,
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final gridWidth = constraints.maxWidth;
@@ -776,6 +786,7 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
   }
 
   Widget _buildMobileLayout(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
         Theme(
@@ -785,12 +796,12 @@ class _DiscoverMoviesPageState extends State<DiscoverMoviesPage> {
           child: ExpansionTile(
             title: Row(
               children: [
-                Icon(Icons.filter_list_rounded, color: Theme.of(context).primaryColor),
+                Icon(Icons.filter_list_rounded, color: colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   'Search Filters',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
+                    color: colorScheme.primary,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

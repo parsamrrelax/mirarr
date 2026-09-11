@@ -197,6 +197,7 @@ class _SearchScreenState extends State<SearchScreen>
   }
 
   Widget _buildEmptyState(String message, IconData icon) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -204,13 +205,13 @@ class _SearchScreenState extends State<SearchScreen>
           Icon(
             icon,
             size: 64,
-            color: Colors.white.withValues(alpha: 0.15),
+            color: colorScheme.outlineVariant.withValues(alpha: 0.4),
           ),
           const SizedBox(height: 16),
           Text(
             message,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.5),
+              color: colorScheme.onSurfaceVariant,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
@@ -221,6 +222,7 @@ class _SearchScreenState extends State<SearchScreen>
   }
 
   Widget _buildNoResultsState(String query) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -228,13 +230,13 @@ class _SearchScreenState extends State<SearchScreen>
           Icon(
             Icons.search_off_rounded,
             size: 64,
-            color: Colors.white.withValues(alpha: 0.15),
+            color: colorScheme.outlineVariant.withValues(alpha: 0.4),
           ),
           const SizedBox(height: 16),
           Text(
             "No results found for '$query'",
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.5),
+              color: colorScheme.onSurfaceVariant,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
